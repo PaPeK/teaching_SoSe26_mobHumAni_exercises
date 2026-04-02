@@ -1,0 +1,45 @@
+[project]
+name = "minimal_template"
+description = "Minimal Python package template for custom project code."
+readme = "README.md"
+requires-python = ">=3.10"
+dynamic = ["version"]
+authors = [
+    { name = "Pascal P. Klamser", email = "klamser@physik.hu-berlin.de" }
+]
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = [
+    "numpy",
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "ruff",
+    "build",
+]
+
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.dynamic]
+version = {attr = "minimal_template.__version__"}
+
+[tool.ruff]
+line-length = 100
+extend-include = ["*.ipynb"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]
