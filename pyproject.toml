@@ -1,6 +1,6 @@
 [project]
-name = "minimal_template"
-description = "Minimal Python package template for custom project code."
+name = "mobha"
+description = "The exercises shall enable students to use python to analyze movement data."
 readme = "README.md"
 requires-python = ">=3.10"
 dynamic = ["version"]
@@ -10,7 +10,12 @@ authors = [
 license = "MIT"
 license-files = ["LICENSE"]
 dependencies = [
+    "geopandas",
+    "h5py>=3.16.0",
+    "matplotlib",
     "numpy",
+    "pandas",
+    "plotly",
 ]
 
 [dependency-groups]
@@ -31,7 +36,7 @@ package-dir = {"" = "src"}
 where = ["src"]
 
 [tool.setuptools.dynamic]
-version = {attr = "minimal_template.__version__"}
+version = {attr = "mobha.__version__"}
 
 [tool.ruff]
 line-length = 100
