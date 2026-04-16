@@ -10,12 +10,11 @@ authors = [
 license = "MIT"
 license-files = ["LICENSE"]
 dependencies = [
+    "ipykernel",
     "geopandas",
-    "h5py>=3.16.0",
     "matplotlib",
     "numpy",
     "pandas",
-    "plotly",
 ]
 
 [dependency-groups]
