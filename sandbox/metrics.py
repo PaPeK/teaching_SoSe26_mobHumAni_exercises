@@ -48,7 +48,7 @@ def extract_clean(V, idx):
     """
     raw   = V['Speeds'][0, 0]
     cell  = raw[idx, 0]
-    fps   = float(V['Parameters'][0, 0]['fps'][0, 0])
+    fps   = float(V['Parameters'][0, 0]['fps'][0, 0].item())
 
     mask      = ~np.isnan(cell[:, 9])   # angle_change_deg must exist
     raw_clean = cell[mask]
