@@ -59,7 +59,7 @@ def extract_clean(V, idx):
         'x_um'            : raw_clean[:, 1],
         'y_um'            : raw_clean[:, 2],
         'z_um'            : raw_clean[:, 3],
-        'vx_um_s'         : raw_clean[:, 5],   # col 6 (task) = index 5
+        'vx_um_s'         : raw_clean[:, 5],   
         'vy_um_s'         : raw_clean[:, 6],   # col 7 (task) = index 6
         'vz_um_s'         : raw_clean[:, 7],   # col 8 (task) = index 7
         'speed_um_s'      : raw_clean[:, 8],   # col 9 (task) = index 8
@@ -98,6 +98,14 @@ def compute_msd(df):
         return np.array(lags), np.array(msd)
 
 def get_cw_bias(V, angle_threshold):
+    """
+    Compute the CW bias (tumble bias) for each trajectory in V based on the fraction of frames where the angle change exceeds a specified threshold.
+    Args:
+        V: Structured container holding speed and parameter arrays, including 'Speeds' and 'Parameters' with an 'fps' field.
+        angle_threshold: value representing the minimum angle change (in degrees) required for a frame
+    
+    return: CW bias values for each trajectory
+    """
     biases = []
     for i in range(len(V['Speeds'][0, 0])):
         df, fps = extract_clean(V, i)
