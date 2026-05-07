@@ -17,6 +17,18 @@ Using an existing environment:
 
 Using uv as package manager (and dev mode):
 
+## Update the environment
+
+During the course, we will add packages that you need for different analysis. They will be added to your `env.yml` file.
+
+In order to update your environment run:
+
+```bash
+mamba env update --file env.yml --prune
+```
+
+if `mamba` is not available use `conda` instead.
+
 1. `uv sync --dev`
 
 ## Repository layout
